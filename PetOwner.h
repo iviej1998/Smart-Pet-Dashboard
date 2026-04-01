@@ -14,6 +14,10 @@ using namespace std;
 
 class PetOwner : public User {
 protected:
-
+/* create, update, delete pet profiles
+    associate devices with pet profiles
+    control connected devices
+    monitor feeding history and device activity
+    intitiate manual feeding and configuration actions */
 
 };
