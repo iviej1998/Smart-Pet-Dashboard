@@ -14,9 +14,6 @@ using namespace std;
   * Child Classes: FeedingLog, DeviceActivityLog, SystemEventLog
  *******************************************************/
 
-class LogEntry {
-protected:
-    int timestamp;
-    string message;
-    int userID;
+class Database {
+
 };
