@@ -1,9 +1,5 @@
 #pragma once
 #include <iostream>
-#include "SystemEntity.h"
-#include "User.h"
-#include "Device.h"
-#include "PetProfile.h"
 using namespace std;
 
 /********************************************************
@@ -18,7 +14,7 @@ using namespace std;
   * Child Classes: FeedingLog, DeviceActivityLog, SystemEventLog
  *******************************************************/
 
-class LogEntry : public SystemEntity {
+class LogEntry {
 protected:
     int timestamp;
     string message;

@@ -1,9 +1,5 @@
 #pragma once
 #include <iostream>
-#include "SystemEntity.h"
-#include "User.h"
-#include "PetProfile.h"
-#include "LogEntry.h"
 using namespace std;
 
 /********************************************************
@@ -16,7 +12,7 @@ using namespace std;
     handling.
   * Child Classes: SmartLight, FoodDispenser
  *******************************************************/
-class Device : public SystemEntity {
+class Device {
 protected:
     int deviceID;
     string deviceName;

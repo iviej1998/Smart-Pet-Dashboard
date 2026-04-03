@@ -13,7 +13,7 @@ using namespace std;
  *******************************************************/
 
 class PetOwner : public User {
-protected:
+public:
 /* create, update, delete pet profiles
     associate devices with pet profiles
     control connected devices
