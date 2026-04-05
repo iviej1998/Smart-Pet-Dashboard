@@ -24,4 +24,8 @@ private:
 public:
 
     int getID() {return petID;}
+
+    void setName(string name) { name = PetName; }
+
+    void setType(string type) { type = PetType; }
 };

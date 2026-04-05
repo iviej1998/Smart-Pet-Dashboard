@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include "User.h"
 using namespace std;
 
@@ -13,6 +14,11 @@ using namespace std;
  *******************************************************/
 
 class PetOwner : public User {
+private:
+    int OwnerID;
+    bool isAuthenticated = true;
+    vector<PetProfile> PetProfiles;
+
 public:
 /* create, update, delete pet profiles
     associate devices with pet profiles
@@ -20,4 +26,24 @@ public:
     monitor feeding history and device activity
     intitiate manual feeding and configuration actions */
 
+
+    void createPetProfile(PetProfile& p) {
+        string name;
+        cout << "Pet Name: ";
+        cin >> name;
+        p.setName(name);
+        string type;
+        cout << "Pet Type: ";
+        cin >> type;
+        p.setType(type);
+        
+        PetProfiles.push_back(p);
+
+    }
+
+    void updatePetProfile() {}
+    void deletePetProfile() {}
+
+    
+    
 };

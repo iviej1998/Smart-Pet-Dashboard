@@ -15,6 +15,10 @@ using namespace std;
 
 class SystemAdmin : public User {
 protected:
+public:
 
+   void validate_user() {
+      
+   }
 
 };

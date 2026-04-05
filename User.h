@@ -1,6 +1,8 @@
 #pragma once
 #include "PetProfile.h"
+#include "PetOwner.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 /********************************************************
@@ -15,12 +17,15 @@ using namespace std;
 class User {
 private:
     int userID;
+    int LinkedPetID;
     string username;
     string password;
     string role;
-    int LinkedPetID;
+    vector<PetOwner> PetOwners;
+    vector<SystemAdmin> SystemAdmins;
 public:
-    User(string username, string password, string role, int PetID) : username(username), password(password), role(role), LinkedPetID(PetID){}
+    User(string username, string password, string role, int PetID, vector<PetOwner> p, vector<SystemAdmin> s) : 
+    username(username), password(password), role(role), LinkedPetID(PetID), PetOwners(p), SystemAdmins(s) {}
 
     void setLinkedPetID(int ID) { ID = LinkedPetID; }
 
@@ -29,5 +34,10 @@ public:
     void LinkToPetProfile(PetProfile& p) {
         LinkedPetID = p.getID();
     }
+
+    void addOwner() {
+
+    }
+    
 
 };
