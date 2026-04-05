@@ -35,9 +35,11 @@ public:
         LinkedPetID = p.getID();
     }
 
-    void addOwner() {
-
+    void addPetOwner(PetOwner& p, SystemAdmin& s) {
+        if (s.validate_user() == true ) {
+            PetOwners.push_back(p);
+        }
     }
-    
+
 
 };
