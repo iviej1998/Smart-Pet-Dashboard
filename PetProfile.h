@@ -14,11 +14,14 @@ using namespace std;
  *******************************************************/
 
 class PetProfile {
-public:
+private:
     int petID;
     string PetName;
     string PetType;
     int foodAmount;
     int treatLimit;
     string linkedDevices;
+public:
+
+    int getID() {return petID;}
 };

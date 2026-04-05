@@ -1,4 +1,5 @@
 #pragma once
+#include "PetProfile.h"
 #include <iostream>
 using namespace std;
 
@@ -12,10 +13,21 @@ using namespace std;
  *******************************************************/
 
 class User {
-protected:
+private:
     int userID;
     string username;
     string password;
     string role;
-    string linkedPetProfiles;
+    int LinkedPetID;
+public:
+    User(string username, string password, string role, int PetID) : username(username), password(password), role(role), LinkedPetID(PetID){}
+
+    void setLinkedPetID(int ID) { ID = LinkedPetID; }
+
+    int getLinkedPetID() { return LinkedPetID; }
+
+    void LinkToPetProfile(PetProfile& p) {
+        LinkedPetID = p.getID();
+    }
+
 };
