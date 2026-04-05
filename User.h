@@ -1,6 +1,7 @@
 #pragma once
 #include "PetProfile.h"
 #include "PetOwner.h"
+#include "AuthenticationManager.h"
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -21,25 +22,25 @@ private:
     string username;
     string password;
     string role;
-    vector<PetOwner> PetOwners;
-    vector<SystemAdmin> SystemAdmins;
 public:
-    User(string username, string password, string role, int PetID, vector<PetOwner> p, vector<SystemAdmin> s) : 
-    username(username), password(password), role(role), LinkedPetID(PetID), PetOwners(p), SystemAdmins(s) {}
+    User(string username, string password, string role, int PetID) : 
+    username(username), password(password), role(role), LinkedPetID(PetID) {}
+
+    void set_username(string u) { username = u; }
+    string get_username() { return username; }
+
+    void set_password (string p) { password = p; }
+    string get_password () { return password; }
 
     void setLinkedPetID(int ID) { ID = LinkedPetID; }
-
     int getLinkedPetID() { return LinkedPetID; }
 
     void LinkToPetProfile(PetProfile& p) {
         LinkedPetID = p.getID();
     }
 
-    void addPetOwner(PetOwner& p, SystemAdmin& s) {
-        if (s.validate_user() == true ) {
+    void addPetOwner(PetOwner& p, AuthenticationManager& a) {
             PetOwners.push_back(p);
-        }
     }
-
 
 };

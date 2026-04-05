@@ -26,6 +26,8 @@ public:
     monitor feeding history and device activity
     intitiate manual feeding and configuration actions */
 
+    PetOwner(int ownerID, bool isAuth, vector<PetProfile> PP, string username, string password, string role, int LinkedPetID) : 
+    OwnerID(ownerID), isAuthenticated(isAuth), PetProfiles(PP), User(username, password, "PetOwner", LinkedPetID) {} 
 
     void createPetProfile(PetProfile& p) {
         string name;
@@ -41,11 +43,7 @@ public:
 
     }
 
-    void updatePetProfile() {
-        
-    }
-    void deletePetProfile() {}
+    void updatePetProfile() {}
 
-    
-    
+    void deletePetProfile() {}
 };

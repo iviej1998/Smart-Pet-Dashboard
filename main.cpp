@@ -11,7 +11,10 @@
 #include "User.h"
 using namespace std;
 
+vector<PetOwner> PetOwners;
+vector<SystemAdmin> SystemAdmins;
 int main() {
+
 
 
   return 0;
