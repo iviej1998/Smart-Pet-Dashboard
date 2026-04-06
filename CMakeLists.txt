@@ -23,8 +23,18 @@ add_executable(Smart-Pet-Dashboard
     User.h
     PetOwner.cpp
     PetOwner.h
-    SystemEntity.h
-    SystemEntity.cpp
+    Device.h
+    Device.cpp
+    PetOwner.cpp
+    PetOwner.h
+    QAUser.cpp
+    QAUser.h
+    SmartLight.cpp
+    SmartLight.h
+    SmartFeeder.cpp
+    SmartLight.h
+    SystemAdmin.h
+    SystemAdmin.cpp
 
 )
 
