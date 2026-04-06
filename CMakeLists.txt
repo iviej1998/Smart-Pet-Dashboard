@@ -29,4 +29,4 @@ add_executable(Smart-Pet-Dashboard
 )
 
 # Link Qt
-target_link_libraries(SmartPetDashboard Qt6::Widgets)
+target_link_libraries(Smart-Pet-Dashboard Qt6::Widgets)
