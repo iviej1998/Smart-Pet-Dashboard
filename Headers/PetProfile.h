@@ -2,12 +2,11 @@
 #include <iostream>
 using namespace std;
 
-class PetProfile
-{
+class PetProfile {
 private:
     int petID;
-    string PetName;
-    string PetType;
+    string petName;
+    string petType;
     int foodAmount;
     int treatLimit;
     string linkedDevices;
