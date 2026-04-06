@@ -25,7 +25,6 @@ add_executable(Smart-Pet-Dashboard
     PetOwner.h
     SystemEntity.h
     SystemEntity.cpp
-        "Source Files/PetProfile.cpp"
 
 )
 
