@@ -10,3 +10,7 @@ int PetProfile::getID() { return petID; }
 void PetProfile::setName(string name) { petName = name; }
 
 void setType(string type) { petType = type; }
+
+string getName() { return petName; }
+
+int getFoodAmount() { return foodAmount; }

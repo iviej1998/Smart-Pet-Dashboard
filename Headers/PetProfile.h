@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 using namespace std;
 
 class PetProfile {
@@ -16,4 +17,7 @@ public:
 
     void setName(string name);
     void setType(string type);
+
+    string getName();
+    int getFoodAmount();
 };
