@@ -1,4 +1,4 @@
-#include "SmartFeeder.h"
+#include "SmartFeeder.cpp"
 
 /********************************************************
  * Authors: Jillian Ivie

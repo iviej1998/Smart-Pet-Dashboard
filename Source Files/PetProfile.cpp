@@ -2,7 +2,7 @@
 // Created by Angel Madrigal on 4/6/26.
 //
 #pragma once
-#include "PetProfile.h"
+#include "PetProfile.cpp"
 using namespace std;
 
 int PetProfile::getID() { return petID; }

@@ -1,6 +1,6 @@
 #pragma once
-#include "SmartLight.h"
-#include "Device.h"
+#include "SmartLight.cpp"
+#include "Device.cpp"
 #include <iostream>
 using namespace std;
 /********************************************************
