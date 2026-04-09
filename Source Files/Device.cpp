@@ -1,4 +1,4 @@
-#include "Device.h"
+#include "Device.cpp"
 
 /********************************************************
  * Authors: Jillian Ivie

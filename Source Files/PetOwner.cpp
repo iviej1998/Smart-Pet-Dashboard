@@ -1,4 +1,4 @@
-#include "PetOwner.h"
+#include "PetOwner.cpp"
 
 /********************************************************
  * Authors: Jillian Ivie
@@ -19,6 +19,8 @@ PetOwner::PetOwner(int ownerID,
     , PetProfiles(PP)
     , User(username, password, "PetOwner", LinkedPetID)
 {}
+
+PetOwner::PetOwner(){}
 
 // Create a new pet profile
 void PetOwner::createPetProfile(PetProfile &p)
