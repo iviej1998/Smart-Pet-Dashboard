@@ -8,7 +8,7 @@
 
 // Constructor
 SmartLight::SmartLight(int id, string name, int ownerID, int brightnessLevel, bool isOn)
-    : Device(id, name, ownerID), brightnessLevel(brightnessLevel), isOn(isOn)
+    : Device(id, name, ownerID), brightnessLevel(brightnessLevel)
 {
 }
 

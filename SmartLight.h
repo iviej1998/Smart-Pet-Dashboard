@@ -19,11 +19,10 @@ class SmartLight : public Device
 {
 private:
     int brightnessLevel; // 0–100
-    bool isOn;
 
 public:
     // Constructor
-    SmartLight(int id, string name, int ownerID, int brightnessLevel, bool isOn);
+    SmartLight(int id, string name, int ownerID, int brightnessLevel);
 
     // Core functionality
     void turnOn();
