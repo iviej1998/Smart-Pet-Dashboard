@@ -123,3 +123,6 @@ CMakeLists.txt.user*
 
 # debug information files
 *.dwo
+
+*database information
+* .idea
