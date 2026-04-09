@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 
+# Link Qt
+target_link_libraries(Smart-Pet-Dashboard Qt6::Widgets)
+
+cmake_minimum_required(VERSION 3.16)
+
 project(SmartPetIoT_UI VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
