@@ -62,7 +62,14 @@ else()
     endif()
 endif()
 
-target_link_libraries(SmartPetIoT_UI PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_include_directories(SmartPetIoT_UI PRIVATE
+        /usr/local/Cellar/mysql-connector-c++/9.6.0/include
+)
+
+target_link_libraries(SmartPetIoT_UI PRIVATE
+        Qt${QT_VERSION_MAJOR}::Widgets
+        /usr/local/Cellar/mysql-connector-c++/9.6.0/lib/libmysqlcppconnx.dylib
+)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
