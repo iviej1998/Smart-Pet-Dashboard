@@ -13,7 +13,9 @@ using namespace std;
 
 vector<PetOwner> PetOwners;
 vector<SystemAdmin> SystemAdmins;
-int main()
-{
+
+int main() {
+
+
     return 0;
 }
