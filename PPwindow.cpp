@@ -1,4 +1,6 @@
 #include "PPwindow.h"
+#include "PPDog.h"
+#include "PPCat.h"
 #include "ui_PPwindow.h"
 #include "PetProfile.h"
 
@@ -29,12 +31,59 @@ void PPWindow::on_btnCreatePet_clicked()
     PetProfile p;
     p.setName(petName);
 
-    //ui->lblStatus->setText("Pet created!");
+    if (ui-> sldrPetType->currentText() == "Dog") {
+        PPDog *d = new PPDog(p, this);
+        d->show();
+    } else if (ui -> sldrPetType->currentText() == "Cat"){
+        PPCat c;
+        c.show();
+    }else if (ui -> sldrPetType->currentText() == "Fish"){
+
+    }else if (ui -> sldrPetType->currentText() == "Reptile"){
+
+    }else if (ui -> sldrPetType->currentText() == "Other"){
+
+    }
+
+    ui->lblStatus->setText("Pet created!");
 }
 
 
 void PPWindow::on_sldrPetType_currentTextChanged(const QString &arg1)
 {
+    PetProfile p;
+    if (arg1 == "Dog") {
+        QString type = "Dog";
+        string PetType = type.toStdString();
+        p.setType(PetType);
+        p.setFeeder(true);
+        p.setLamp(false);
 
+    }else if (arg1 == "Cat") {
+        QString type = "Cat";
+        string PetType = type.toStdString();
+        p.setType(PetType);
+        p.setFeeder(true);
+        p.setLamp(false);
+
+    } else if (arg1 == "Fish") {
+        QString type = "Fish";
+        string PetType = type.toStdString();
+        p.setType(PetType);
+        p.setFeeder(true);
+        p.setLamp(true);
+
+    } else if (arg1 == "Reptile") {
+        QString type = "Reptile";
+        string PetType = type.toStdString();
+        p.setType(PetType);
+        p.setFeeder(true);
+        p.setLamp(true);
+
+    } else if (arg1 == "Other") {
+        return;
+    } else {
+        ui ->lblStatus -> setText("Please fill all fields!");
+    }
 }
 

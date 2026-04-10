@@ -99,17 +99,17 @@
       </item>
      </widget>
     </item>
-    <item row="6" column="0" colspan="2">
-     <widget class="QLabel" name="lblStatus">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
     <item row="7" column="0" colspan="2">
      <widget class="QPushButton" name="btnCreatePet">
       <property name="text">
        <string>Create Pet</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0" colspan="2">
+     <widget class="QLabel" name="lblStatus">
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>

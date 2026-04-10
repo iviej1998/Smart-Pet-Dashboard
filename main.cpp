@@ -1,5 +1,6 @@
 //#include "Database.cpp"
 #include "Device.h"
+#include "PPDog.h"
 #include "PetOwner.h"
 #include "PetProfile.h"
 #include "QAUser.h"
@@ -9,6 +10,7 @@
 #include "User.h"
 #include "mainwindow.h"
 #include "PPwindow.h"
+#include "PPDog.h"
 #include <QApplication>
 #include <iostream>
 #include <vector>

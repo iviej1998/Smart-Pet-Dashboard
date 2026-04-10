@@ -27,7 +27,6 @@ public:
     void setUserID(int id);
     void setFeeder(bool feeder);
     void setLamp(bool lamp);
-    int getID();
 
     int getID() const;
     string getName() const;

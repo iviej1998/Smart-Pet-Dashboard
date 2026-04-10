@@ -21,7 +21,7 @@ void PetProfile::setFeeder(bool feeder) { hasFeeder = feeder; }
 void PetProfile::setLamp(bool lamp) { hasLamp = lamp; }
 
 //Getters
-int PetProfile::getID() { return petID; }
+int PetProfile::getID() const { return petID; }
 
 string PetProfile::getName() const { return petName; }
 
