@@ -8,6 +8,7 @@
 #include "SystemAdmin.h"
 #include "User.h"
 #include "mainwindow.h"
+#include "PPwindow.h"
 #include <QApplication>
 #include <iostream>
 #include <vector>
@@ -33,5 +34,8 @@ int main(int argc, char *argv[])
     }
     MainWindow w;
     w.show();
+
+    PPWindow p;
+    p.show();
     return QCoreApplication::exec();
 }

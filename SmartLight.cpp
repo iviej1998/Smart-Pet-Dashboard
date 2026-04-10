@@ -38,3 +38,8 @@ void SmartLight::acknowledge()
 int SmartLight::getBrightness()
 {
 }
+
+//Smartlight:: SmartLight setHeat() {}
+
+//Smartlighgt::SmartLight changecolor() {}
+

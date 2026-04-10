@@ -39,6 +39,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         AuthenticationManager.h
         AuthenticationManager.cpp
         QAUser.h QAUser.cpp
+        PPwindow.h PPwindow.cpp PPwindow.ui
+
 
 
 

@@ -41,7 +41,7 @@ void SmartFeeder::setPortionSize(int size) {
 
 // Add a feeding time to the schedule
 void SmartFeeder::addFeedingSchedule(string time) {
-    feedingSchedule.push_back(time);
+    //feedingSchedule.push_back(time);
 }
 
 // Update food level
