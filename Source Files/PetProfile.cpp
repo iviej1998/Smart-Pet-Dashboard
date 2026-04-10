@@ -1,7 +1,7 @@
 //
 // Created by Angel Madrigal on 4/6/26.
 //
-#include "PetProfile.h
+#include "PetProfile.h"
 using std::string;
 using std::cout;
 using std::endl;
@@ -26,7 +26,7 @@ void PetProfile::setFeeder(bool feeder) { hasFeeder = feeder; }
 void PetProfile::setLamp(bool lamp) { hasLamp = lamp; }
 
 //Getters
-int PetProfile::getID() { return petID; }
+int PetProfile::getID() const { return petID; }
 
 string PetProfile::getName() const { return petName; }
 
@@ -69,7 +69,7 @@ void PetProfile::displayProfile() {
     cout << "Lamp Status: " << hasLamp << endl;
 }
 
-friend ostream& operator<<(ostream& os, const PetProfile& petProfile) {
+ostream& operator<<(ostream& os, const PetProfile& petProfile) {
     os << "Pet Name: " << petProfile.getName() << endl;
     os << "Pet Type: " << petProfile.getType() << endl;
     os << "Food Amount for " << petProfile.getName() << ": " << petProfile.getFoodAmount() << endl;
