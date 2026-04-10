@@ -1,5 +1,6 @@
 //#include "Database.cpp"
 #include "Device.h"
+#include "PPDog.h"
 #include "PetOwner.h"
 #include "PetProfile.h"
 #include "QAUser.h"
@@ -8,6 +9,8 @@
 #include "SystemAdmin.h"
 #include "User.h"
 #include "mainwindow.h"
+#include "PPwindow.h"
+#include "PPDog.h"
 #include <QApplication>
 #include <iostream>
 #include <vector>
@@ -33,5 +36,8 @@ int main(int argc, char *argv[])
     }
     MainWindow w;
     w.show();
+
+    PPWindow p;
+    p.show();
     return QCoreApplication::exec();
 }

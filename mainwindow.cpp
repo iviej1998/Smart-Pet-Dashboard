@@ -16,21 +16,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnCreatePet_clicked()
 {
-    QString name = ui->txtPetName->text();
-    QString type = ui->txtPetType->text();
 
-    if (name.isEmpty() || type.isEmpty()) {
-        ui->lblStatus->setText("Please fill all fields");
-        return;
-    }
-
-    string petName = name.toStdString();
-    string petType = type.toStdString();
-
-    PetProfile p;
-    p.setName(petName);
-    p.setType(petType);
-
-    ui->lblStatus->setText("Pet created!");
 }
 
