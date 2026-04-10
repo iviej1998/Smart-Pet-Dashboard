@@ -36,10 +36,10 @@ public:
     void deleteProfile();
     void displayProfile();
 
-    PetProfile(int pID, const sdt::string& pName, const std::string& pType, int fAmt, int tLimit, int usID, bool hasF, bool hasLamp)
+    PetProfile(int pID, const std::string& pName, const std::string& pType, int fAmt, int tLimit, int usID, bool hasF, bool hasLamp)
                 : petID(pID), petName(pName), petType(pType), foodAmount(fAmt), treatLimit(tLimit), userID(usID), hasFeeder(hasF), hasLamp(hasLamp) {}
     PetProfile() {}
     ~PetProfile() {}
 
-    friend ostream& operator<<(ostream& os, const PetProfile& petProfile);
+    friend std::ostream& operator<<(std::ostream& os, const PetProfile& petProfile);
 };

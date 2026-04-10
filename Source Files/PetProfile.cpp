@@ -51,7 +51,7 @@ void PetProfile::editProfile(const string& pName, const string& pType, int fAmt,
     hasFeeder = hasF;
     hasLamp = hasL;
 
-    cout << "Pet Profile for " << petName << "succesfully changed!" << endl;
+    cout << "Pet Profile for " << petName << "successfully changed!" << endl;
 }
 
 void PetProfile::deleteProfile() {
