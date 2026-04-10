@@ -2,6 +2,11 @@
 // Created by Angel Madrigal on 4/6/26.
 //
 #include "PetProfile.h"
+using std::string;
+using std::cout;
+using std::endl;
+using std::ostream;
+
 
 //Setters
 void PetProfile::setID(int id) { petID = id; } //TODO: Change when database is implemented/ready
@@ -21,7 +26,7 @@ void PetProfile::setFeeder(bool feeder) { hasFeeder = feeder; }
 void PetProfile::setLamp(bool lamp) { hasLamp = lamp; }
 
 //Getters
-int PetProfile::getID() { return petID; }
+int PetProfile::getID() const { return petID; }
 
 string PetProfile::getName() const { return petName; }
 
@@ -46,7 +51,7 @@ void PetProfile::editProfile(const string& pName, const string& pType, int fAmt,
     hasFeeder = hasF;
     hasLamp = hasL;
 
-    cout << "Pet Profile for " << petName << "succesfully changed!" << endl;
+    cout << "Pet Profile for " << petName << "successfully changed!" << endl;
 }
 
 void PetProfile::deleteProfile() {
