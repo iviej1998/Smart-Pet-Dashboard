@@ -1,7 +1,7 @@
 //
 // Created by Angel Madrigal on 4/6/26.
 //
-#include "../Headers/PetProfile.h"
+#include "PetProfile.h"
 
 //Setters
 void PetProfile::setID(int id) { petID = id; } //TODO: Change when database is implemented/ready

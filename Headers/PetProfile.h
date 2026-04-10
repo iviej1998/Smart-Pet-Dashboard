@@ -19,6 +19,7 @@ private:
     bool hasLamp;
 
     void setID(int id); //Set from the databse primary key
+    int getID();
 public:
     void setName(const string& name);
     void setType(const string& type);
