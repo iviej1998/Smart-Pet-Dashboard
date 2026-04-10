@@ -2,11 +2,6 @@
 #include <iostream>
 #include <string>
 
-using std::string;
-using std::cout;
-using std::endl;
-using std::ostream;
-
 class PetProfile {
 private:
     int petID;
@@ -46,5 +41,5 @@ public:
     PetProfile() {}
     ~PetProfile() {}
 
-    ostream& operator<<(ostream& os, const PetProfile& petProfile);
+    friend ostream& operator<<(ostream& os, const PetProfile& petProfile);
 };

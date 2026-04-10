@@ -2,6 +2,12 @@
 // Created by Angel Madrigal on 4/6/26.
 //
 #include "PetProfile.h
+using std::string;
+using std::cout;
+using std::endl;
+using std::ostream;
+
+
 //Setters
 void PetProfile::setID(int id) { petID = id; } //TODO: Change when database is implemented/ready
 
@@ -63,7 +69,7 @@ void PetProfile::displayProfile() {
     cout << "Lamp Status: " << hasLamp << endl;
 }
 
-ostream& operator<<(ostream& os, const PetProfile& petProfile) {
+friend ostream& operator<<(ostream& os, const PetProfile& petProfile) {
     os << "Pet Name: " << petProfile.getName() << endl;
     os << "Pet Type: " << petProfile.getType() << endl;
     os << "Food Amount for " << petProfile.getName() << ": " << petProfile.getFoodAmount() << endl;
