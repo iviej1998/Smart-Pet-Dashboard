@@ -1,6 +1,7 @@
 #include "PPwindow.h"
 #include "PPDog.h"
 #include "PPCat.h"
+#include "PPFish.h"
 #include "ui_PPwindow.h"
 #include "PetProfile.h"
 
@@ -25,7 +26,6 @@ void PPWindow::on_btnCreatePet_clicked()
         ui->lblStatus->setText("Please fill all fields");
         return;
     }
-
     string petName = name.toStdString();
 
     PetProfile p;
@@ -35,10 +35,11 @@ void PPWindow::on_btnCreatePet_clicked()
         PPDog *d = new PPDog(p, this);
         d->show();
     } else if (ui -> sldrPetType->currentText() == "Cat"){
-        PPCat c;
-        c.show();
+        PPCat *c = new PPCat(p, this);
+        c->show();
     }else if (ui -> sldrPetType->currentText() == "Fish"){
-
+        FishPP *f = new FishPP(p, this);
+        f->show();
     }else if (ui -> sldrPetType->currentText() == "Reptile"){
 
     }else if (ui -> sldrPetType->currentText() == "Other"){

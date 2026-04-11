@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PPDog</class>
- <widget class="QDialog" name="PPDog">
+ <class>PPReptile</class>
+ <widget class="QDialog" name="PPReptile">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>549</width>
+    <width>400</width>
     <height>300</height>
    </rect>
   </property>
@@ -16,7 +16,7 @@
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>70</x>
      <y>70</y>
      <width>261</width>
      <height>91</height>
@@ -37,7 +37,7 @@
        <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <property name="text">
-       <string/>
+       <string>Reptile Pet Profile</string>
       </property>
       <property name="textFormat">
        <enum>Qt::TextFormat::AutoText</enum>
@@ -47,32 +47,12 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Set Food Amount:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="editFoodAmount"/>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Set Treat Limit:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="editTreatLimit"/>
-    </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>160</x>
      <y>170</y>
      <width>82</width>
      <height>42</height>
@@ -80,12 +60,12 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="btnAddDog">
+     <widget class="QPushButton" name="btnAddPet">
       <property name="autoFillBackground">
        <bool>false</bool>
       </property>
       <property name="text">
-       <string>Add Dog</string>
+       <string>Add Reptile</string>
       </property>
      </widget>
     </item>

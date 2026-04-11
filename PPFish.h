@@ -4,21 +4,20 @@
 #include <QDialog>
 
 namespace Ui {
-class PPCat;
+class FishPP;
 }
 
-class PPCat : public QDialog
+class FishPP : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit PPCat(const PetProfile &p, QWidget *parent = nullptr);
-    ~PPCat();
+    explicit FishPP(const PetProfile& p, QWidget *parent = nullptr);
+    ~FishPP();
 
 private slots:
     void on_btnAddPet_clicked();
 
 private:
-    Ui::PPCat *ui;
+    Ui::FishPP *ui;
 };
-
