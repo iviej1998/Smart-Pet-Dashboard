@@ -1,38 +1,45 @@
-#pragma once
-#include "SmartLight.cpp"
-#include "Device.cpp"
-#include <iostream>
-using namespace std;
+#include "SmartLight.h"
+
 /********************************************************
- * Authors: Jillian Ivie,
+ * Authors: Jillian Ivie
  * Version: 1.1
- * Purpose: Represents the smart habitat lighting device
-    used within the Smart Pet Dashboard system. This class
-    extends the Device base class and provides specialized functionality
-    for controlling habitat lighting features such as power state,
-    brightness, color, heating power, and heating level.
-    It supports remote environmental control for reptiles 
-    and aquariums through the centralized dashboard. 
+ * Purpose: Implements SmartLight class functions
  *******************************************************/
-class SmartLight : public Device
+
+// Constructor
+SmartLight::SmartLight(int id, string name, int ownerID, int brightnessLevel, bool isOn)
+    : Device(id, name, ownerID), brightnessLevel(brightnessLevel)
 {
-private:
-    int brightnessLevel; // 0–100
-    bool isOn;
+}
 
-public:
-    // Constructor
-    SmartLight(int id, string name, int ownerID) {}
+// Core functionality
+void SmartLight::turnOn()
+{
+}
 
-    // Core functionality
-    void turnOn() {}
-    void turnOff() {}
-    void setBrightness(int level) {}
+void SmartLight::turnOff()
+{
+}
 
-    // Override device behavior
-    void sendCommand(string command) override {}
-    void acknowledge() override {}
+void SmartLight::setBrightness(int level)
+{
+}
 
-    // Status
-    int getBrightness() {}
-};
+// Override device behavior
+void SmartLight::sendCommand(string command)
+{
+}
+
+void SmartLight::acknowledge()
+{
+}
+
+// Status
+int SmartLight::getBrightness()
+{
+}
+
+//Smartlight:: SmartLight setHeat() {}
+
+//Smartlighgt::SmartLight changecolor() {}
+
