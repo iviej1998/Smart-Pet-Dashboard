@@ -15,8 +15,9 @@ PPDog::~PPDog()
     delete ui;
 }
 
-void PPDog::on_pushButton_clicked()
-{
 
+void PPDog::on_btnAddPet_clicked()
+{
+//print page confirming dog profile details
 }
 

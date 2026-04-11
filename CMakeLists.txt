@@ -42,6 +42,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         PPwindow.h PPwindow.cpp PPwindow.ui
         PPDog.h PPDog.cpp ppdog.ui
         PPCat.h PPCat.cpp ppcat.ui
+        PPFish.h PPFish.cpp ppfish.ui
+        PPReptile.h PPReptile.cpp ppreptile.ui
 
 
 
