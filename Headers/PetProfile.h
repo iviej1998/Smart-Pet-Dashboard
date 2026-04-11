@@ -14,6 +14,7 @@ private:
     bool hasLamp;
 
     void setID(int id); //Set from the databse primary key
+    int getID();
 public:
     void setName(const std::string& name);
     void setType(const std::string& type);

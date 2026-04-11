@@ -2,11 +2,6 @@
 // Created by Angel Madrigal on 4/6/26.
 //
 #include "PetProfile.h"
-using std::string;
-using std::cout;
-using std::endl;
-using std::ostream;
-
 
 //Setters
 void PetProfile::setID(int id) { petID = id; } //TODO: Change when database is implemented/ready

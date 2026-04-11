@@ -27,7 +27,7 @@ public:
                         string username,
                         string password,
                         string role,
-             int LinkedPetID);
+            int LinkedPetID);
     void createPetProfile(PetProfile& p);
     void updatePetProfile();
     void deletePetProfile();
