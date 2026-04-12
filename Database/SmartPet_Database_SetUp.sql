@@ -12,6 +12,7 @@ CREATE TABLE UserProfile (
 	UserID INT 	AUTO_INCREMENT PRIMARY KEY, 
     Username VARCHAR(50) NOT NULL UNIQUE,
     PasswordHash VARCHAR(200) NOT NULL,
+	Email VARCHAR(100) NOT NULL UNIQUE,
     UserRole ENUM ('Owner', 'Pet_Sitter', 'Admin', 'QA_User') NOT NULL
 );
 
