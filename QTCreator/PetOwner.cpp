@@ -7,14 +7,15 @@
  *******************************************************/
 
 // Constructor
-PetOwner::PetOwner(int ownerID,
+PetOwner::PetOwner(int petID,
+                   int ownerID,
                    bool isAuth,
                    vector<PetProfile> PP,
                    string username,
                    string password,
                    string role,
                    int LinkedPetID)
-    : User(username, password, role, LinkedPetID)
+    : User(petID, username, password, role, LinkedPetID)
     , OwnerID(ownerID)
     , isAuthenticated(isAuth)
     , PetProfiles(PP)

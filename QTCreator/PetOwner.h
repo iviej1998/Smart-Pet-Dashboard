@@ -21,12 +21,13 @@ private:
     vector<PetProfile> PetProfiles;
 
 public:
-    PetOwner(int ownerID,
-                        bool isAuth,
-                        vector<PetProfile> PP,
-                        string username,
-                        string password,
-                        string role,
+    PetOwner(int petID,
+            int ownerID,
+            bool isAuth,
+            vector<PetProfile> PP,
+            string username,
+            string password,
+            string role,
             int LinkedPetID);
     void createPetProfile(PetProfile& p);
     void updatePetProfile();

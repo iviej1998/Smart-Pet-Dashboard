@@ -1,6 +1,7 @@
 //#include "Database.cpp"
 #include "Device.h"
 #include "PPDog.h"
+#include "PPFish.h"
 #include "PetOwner.h"
 #include "PetProfile.h"
 #include "QAUser.h"
@@ -8,6 +9,7 @@
 #include "SmartLight.h"
 #include "SystemAdmin.h"
 #include "User.h"
+#include "Login.h"
 #include "mainwindow.h"
 #include "PPwindow.h"
 #include "PPDog.h"
@@ -19,7 +21,7 @@
 using namespace std;
 
 
-
+static int petID_count = 1;
 
 int main(int argc, char *argv[])
 {
@@ -34,10 +36,11 @@ int main(int argc, char *argv[])
             break;
         }
     }
-    MainWindow w;
-    w.show();
 
-    PPWindow p;
-    p.show();
+
+    Login l;
+    l.show();
+
+
     return QCoreApplication::exec();
 }

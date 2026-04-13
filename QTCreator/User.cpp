@@ -9,9 +9,20 @@
  * Purpose: Implements User class functions
  *******************************************************/
 
-User::User(string username, string password, string role, int PetID)
-    : username(username), password(password), role(role), LinkedPetID(PetID)
+User::User() {}
+
+User::User(int userID, string username, string password, string role, int PetID)
+    : userID(userID), username(username), password(password), role(role), LinkedPetID(PetID)
 {
+}
+
+void User::set_userID(int id)
+{
+    userID = id;
+}
+
+int User::get_userID() {
+    return userID;
 }
 
 void User::set_username(string u)
@@ -47,6 +58,27 @@ int User::getLinkedPetID()
 void User::LinkToPetProfile(PetProfile& p)
 {
     LinkedPetID = p.getID();
+}
+
+void User::set_PetID_count(int id)
+{
+     petID_count = id;
+}
+
+int User::get_PetID_count()
+{
+    return petID_count;
+}
+
+void User::increment_petID_count() {
+    petID_count++;
+}
+
+void User::set_role(string r) {
+    role = r;
+}
+string User::get_role() {
+    return role;
 }
 
 void User::addPetOwner(PetOwner& p)

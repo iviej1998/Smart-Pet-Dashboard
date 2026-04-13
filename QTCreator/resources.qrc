@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>kevin.jpg</file>
+        <file>leonard.jpg</file>
+        <file>LoLo fixed.jpg</file>
+        <file>Screenshot_20260411-122618.Messages (1).png</file>
+        <file>Screenshot_20260411-122650.Messages (1).png</file>
+        <file>Screenshot_20260411-122716.Messages (1).png</file>
+        <file>Screenshot_20260411-122723.Messages (1).png</file>
+        <file>Screenshot_20260411-122742.Messages-EDIT (1).jpg</file>
+    </qresource>
+</RCC>

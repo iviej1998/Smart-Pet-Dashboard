@@ -44,6 +44,12 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         PPCat.h PPCat.cpp ppcat.ui
         PPFish.h PPFish.cpp ppfish.ui
         PPReptile.h PPReptile.cpp ppreptile.ui
+        Login.h Login.cpp login.ui
+        resources.qrc
+        CreateAccount.h CreateAccount.cpp createaccount.ui
+
+
+
 
 
 
