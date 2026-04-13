@@ -1,6 +1,7 @@
 #pragma once
 #include "User.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 /********************************************************
  * Authors: Jillian Ivie,
@@ -15,6 +16,7 @@ using namespace std;
 class AuthenticationManager
 {
 private:
+    vector <User> Users;
 public:
     //validate registration input
     //verify username and uniqueness
@@ -22,4 +24,7 @@ public:
     //verify matching username and password at signup
     //
     AuthenticationManager();
+    AuthenticationManager(vector<User> users);
+
+    vector<User>& getUsers();
 };

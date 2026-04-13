@@ -23,9 +23,14 @@ private:
     string username;
     string password;
     string role;
+    int petID_count = 1;
 
 public:
-    User(string username, string password, string role, int PetID);
+    User();
+    User(int userID, string username, string password, string role, int PetID);
+
+    void set_userID(int id);
+    int get_userID();
 
     void set_username(string u);
     string get_username();
@@ -36,7 +41,16 @@ public:
     void setLinkedPetID(int ID);
     int getLinkedPetID();
 
+    void set_PetID_count(int id);
+    int get_PetID_count();
+    void increment_petID_count();
+
+    void set_role(string r);
+    string get_role();
+
     void LinkToPetProfile(PetProfile& p);
 
     void addPetOwner(PetOwner& p);
+
+
 };

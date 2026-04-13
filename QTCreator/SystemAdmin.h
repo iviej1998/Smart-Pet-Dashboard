@@ -16,6 +16,7 @@ using namespace std;
 class SystemAdmin : public User
 {
 protected:
+    int petID;
     string username;
     string password;
     string role;
