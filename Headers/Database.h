@@ -1,18 +1,30 @@
 #pragma once
-#include <iostream>
-using namespace std;
+#include <string>
+#include <vector>
+#include <unordered_map>
+#include <mysqlx/xdevapi.h>
 
-/********************************************************
- * Authors: Jillian Ivie,
- * Version: 1.1
- * Purpose: Represents a recorded system event or activity. 
-    This class provides a common structure for tracking actions
-    such as feeding events, device commands, status changes,
-    and other monitored operations. It serves as a base class
-    for more specific logging classes and supports the system's
-    monitoring and accountability features.
-  * Child Classes: FeedingLog, DeviceActivityLog, SystemEventLog
- *******************************************************/
 
-class Database
-{};
+class Database {
+private:
+    std::string host;
+    std::string userName;
+    std::string password;
+    std::string databaseName;
+    int port;
+
+    mysqlx::Session* session; //MySQL Connector object
+    mysqlx::Schema* schema;
+public:
+    using Row = std::unordered_map<std::string, std::string>;
+    using QueryResult = std::vector<Row>;
+
+    bool connect();
+    void disconnect();
+    bool executeQuery(const std::string& query);
+    QueryResult executeSelectQuery(const std::string& query);
+    Database(const std::string& hst, const std::string& usrNme, const std::string& passWrd, const std::string& dB, int prt)
+            : host(hst), userName(usrNme), password(passWrd), databaseName(dB), port(prt), session(nullptr), schema(nullptr) {};
+    ~Database();
+};
+
