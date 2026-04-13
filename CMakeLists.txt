@@ -20,6 +20,10 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         Headers/PetProfileManager.h
+        "Source Files/PetProfileManager.cpp"
+        "Source Files/Database.cpp"
+        Headers/EnvLoader.h
+        "Source Files/EnvLoader.cpp"
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
