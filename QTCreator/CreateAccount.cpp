@@ -20,13 +20,8 @@ CreateAccount::~CreateAccount()
 
 void CreateAccount::on_btnCreateAccount_clicked(User& u)
 {
-    int count = u.get_PetID_count();
-    u.set_userID(count);
-
     string userName = username.toStdString();
     u.set_username(userName);
 
-    u.set_role(userName);
-
-    u.increment_petID_count();
+    u.set_role("Pet Owner");
 }
