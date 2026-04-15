@@ -44,7 +44,7 @@ bool PetProfile::getLamp() const { return hasLamp; }
 std::string PetProfile::getOtherType() const { return otherPetType; }
 
 //User commands
-void PetProfile::editProfile(const string& pName, const string& pType, const std::string& oType, int fAmt, int tAmt, bool hasL) {
+void PetProfile::editProfile(const string& pName, const string& pType, const std::string& oType, double fAmt, int tAmt, bool hasL) {
     petName = pName;
     petType = pType;
     foodAmount = fAmt;
@@ -55,12 +55,6 @@ void PetProfile::editProfile(const string& pName, const string& pType, const std
     cout << "Pet Profile for " << petName << "successfully changed!" << endl;
 }
 
-void PetProfile::deleteProfile() {
-    //TODO: Add database query to delete record of profile
-
-    cout << petName << " permanently deleted!" << endl;
-}
-
 void PetProfile::displayProfile() {
     cout << "Pet Name: " << petName << endl;
     cout << "Pet Type: " << petType << endl;
@@ -68,6 +62,7 @@ void PetProfile::displayProfile() {
     cout << "Food Amount for " << petName << ": " << foodAmount << endl;
     cout << "Treat Limit for " << petName << ": " << treatLimit << endl;
     cout << "Lamp Status: " << hasLamp << endl;
+    cout << endl;
 }
 
 ostream& operator<<(ostream& os, const PetProfile& petProfile) {

@@ -52,7 +52,7 @@ Database::QueryResult Database::executeSelectQuery(const std::string& query) { /
         while ((currentRow = res.fetchOne())) {
             Row row;
             for (auto i = 0; i < res.getColumnCount(); ++i) {
-                //Checks for int or string in row for value in map
+                //Checks for data type in row for value in map
                 if (currentRow[i].getType() == mysqlx::Value::Type::INT64) {
                     row[cols[i].getColumnName()] = std::to_string(currentRow[i].get<int>());
                 } else if (currentRow[i].getType() == mysqlx::Value::Type::DOUBLE) {
@@ -61,9 +61,9 @@ Database::QueryResult Database::executeSelectQuery(const std::string& query) { /
                     row[cols[i].getColumnName()] = currentRow[i].get<std::string>();
                 } else if (currentRow[i].getType() == mysqlx::Value::Type::BOOL) {
                     row[cols[i].getColumnName()] = std::to_string(currentRow[i].get<bool>());
-                } else if (currentRow[i].getType() == mysqlx::Value::Type::VNULL) {
+                } else if (currentRow[i].getType() == mysqlx::Value::Type::VNULL) { //If OtherType is NUll
                     row[cols[i].getColumnName()] = "";
-                } else if (currentRow[i].getType() == mysqlx::Value::Type::UINT64) {
+                } else if (currentRow[i].getType() == mysqlx::Value::Type::UINT64) { //For Pet ID, return unsigned integer instead of signed
                     row[cols[i].getColumnName()] = std::to_string(currentRow[i].get<uint64_t>());
                 }
             }
@@ -79,5 +79,3 @@ Database::QueryResult Database::executeSelectQuery(const std::string& query) { /
 Database::~Database() {
     disconnect();
 }
-
-

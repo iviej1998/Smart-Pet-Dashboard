@@ -29,9 +29,9 @@ public:
     bool getLamp() const;
     std::string getOtherType() const;
 
-    //Modifer functions
-    void editProfile(const std::string& pName, const std::string& pType, const std::string& oType, int fAmt, int tAmt, /*bool hasF,*/ bool hasL);
-    void deleteProfile();
+    //Modifier functions
+    void editProfile(const std::string& pName, const std::string& pType, const std::string& oType, double fAmt, int tAmt, /*bool hasF,*/ bool hasL);
+    //void deleteProfile(); Remove since it is already implemented
     void displayProfile();
 
     PetProfile(const std::string& pName, const std::string& pType, const std::string& oType, int fAmt, int tLimit, bool hasLamp)

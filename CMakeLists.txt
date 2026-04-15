@@ -24,6 +24,10 @@ set(PROJECT_SOURCES
         "Source Files/Database.cpp"
         Headers/EnvLoader.h
         "Source Files/EnvLoader.cpp"
+        "Source Files/UserProfileManager.cpp"
+        Headers/UserProfileManager.h
+        Headers/UserProfile.h
+        "Source Files/UserProfile.cpp"
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
