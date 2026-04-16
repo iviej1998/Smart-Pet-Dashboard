@@ -1,6 +1,4 @@
-#ifndef PPWINDOW_H
-#define PPWINDOW_H
-
+#pragma once
 #include <QDialog>
 
 namespace Ui {
@@ -24,4 +22,3 @@ private:
     Ui::PPWindow *ui;
 };
 
-#endif // PPWINDOW_H

@@ -60,20 +60,6 @@ void User::LinkToPetProfile(PetProfile& p)
     LinkedPetID = p.getID();
 }
 
-void User::set_PetID_count(int id)
-{
-     petID_count = id;
-}
-
-int User::get_PetID_count()
-{
-    return petID_count;
-}
-
-void User::increment_petID_count() {
-    petID_count++;
-}
-
 void User::set_role(string r) {
     role = r;
 }

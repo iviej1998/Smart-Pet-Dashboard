@@ -3,7 +3,6 @@
 #include "PPCat.h"
 #include "PPFish.h"
 #include "ui_PPwindow.h"
-#include "PetProfile.h"
 
 PPWindow::PPWindow(QWidget *parent)
     : QDialog(parent)
@@ -26,7 +25,7 @@ void PPWindow::on_btnCreatePet_clicked()
         ui->lblStatus->setText("Please fill all fields");
         return;
     }
-    string petName = name.toStdString();
+    std::string petName = name.toStdString();
 
     PetProfile p;
     p.setName(petName);
@@ -52,34 +51,22 @@ void PPWindow::on_btnCreatePet_clicked()
 
 void PPWindow::on_sldrPetType_currentTextChanged(const QString &arg1)
 {
-    PetProfile p;
     if (arg1 == "Dog") {
         QString type = "Dog";
-        string PetType = type.toStdString();
-        p.setType(PetType);
-        p.setFeeder(true);
-        p.setLamp(false);
+        std::string PetType = type.toStdString();
+
 
     }else if (arg1 == "Cat") {
         QString type = "Cat";
-        string PetType = type.toStdString();
-        p.setType(PetType);
-        p.setFeeder(true);
-        p.setLamp(false);
+        std::string PetType = type.toStdString();
 
     } else if (arg1 == "Fish") {
         QString type = "Fish";
-        string PetType = type.toStdString();
-        p.setType(PetType);
-        p.setFeeder(true);
-        p.setLamp(true);
+        std::string PetType = type.toStdString();
 
     } else if (arg1 == "Reptile") {
         QString type = "Reptile";
-        string PetType = type.toStdString();
-        p.setType(PetType);
-        p.setFeeder(true);
-        p.setLamp(true);
+        std::string PetType = type.toStdString();
 
     } else if (arg1 == "Other") {
         return;

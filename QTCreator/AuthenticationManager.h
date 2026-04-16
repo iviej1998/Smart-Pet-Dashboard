@@ -18,13 +18,16 @@ class AuthenticationManager
 private:
     vector <User> Users;
 public:
-    //validate registration input
-    //verify username and uniqueness
-    // enforce password rules
-    //verify matching username and password at signup
-    //
+
     AuthenticationManager();
     AuthenticationManager(vector<User> users);
-
     vector<User>& getUsers();
+    bool login(const string& username, const string& password);
+    bool registerUser(const string& username, const string& password);
+    bool verifyPassword(const string& username, const string& password);
+    string hashPassword(const string& password);
+    bool updatePassword(const string& username, const string& oldPassword, const string& newPassword);
+    bool validatePasswordStrength(const string& password);
+
+
 };

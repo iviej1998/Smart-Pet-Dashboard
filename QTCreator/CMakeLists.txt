@@ -47,6 +47,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Login.h Login.cpp login.ui
         resources.qrc
         CreateAccount.h CreateAccount.cpp createaccount.ui
+        PetProfileManager.h PetProfileManager.cpp
+        Database.h Database.cpp
+        UserProfile.h UserProfile.cpp
+        UserProfileManager.h UserProfileManager.cpp
+        build/qt-msvc-Debug/libcrypto-3-x64.dll build/qt-msvc-Debug/libssl-3-x64.dll build/qt-msvc-Debug/mysqlcppconnx-2-vs14.dll
 
 
 
@@ -74,7 +79,15 @@ else()
     endif()
 endif()
 
-target_link_libraries(SmartPetIoT_UI PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_include_directories(SmartPetIoT_UI PRIVATE
+    C:/mysqlconnector/mysql-connector-c++-9.6.0-winx64/include
+)
+
+target_link_libraries(SmartPetIoT_UI PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    "C:/mysqlconnector/mysql-connector-c++-9.6.0-winx64/lib64/vs14/mysqlcppconnx.lib"
+    "C:/mysqlconnector/mysql-connector-c++-9.6.0-winx64/lib64/vs14/mysqlcppconn.lib"
+)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

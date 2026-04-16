@@ -23,7 +23,6 @@ private:
     string username;
     string password;
     string role;
-    int petID_count = 1;
 
 public:
     User();

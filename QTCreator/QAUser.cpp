@@ -1,4 +1,3 @@
-#pragma once
 #include "QAUser.h"
 #include "User.h"
 #include <iostream>

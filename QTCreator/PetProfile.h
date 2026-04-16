@@ -2,49 +2,43 @@
 #include <iostream>
 #include <string>
 
-using std::string;
-using std::cout;
-using std::endl;
-using std::ostream;
-
 class PetProfile {
 private:
-    int petID;
-    string petName;
-    string petType;
-    int foodAmount;
+    int petID = 0;
+    std::string petName;
+    std::string petType;
+    std::string otherPetType;
+    double foodAmount;
     int treatLimit;
-    int userID;
-    bool hasFeeder;
     bool hasLamp;
 
-    void setID(int id); //Set from the databse primary key
+    void setID(int id); //Set from the database primary key
 public:
-    void setName(const string& name);
-    void setType(const string& type);
-    void setFoodAmount(int amount);
+    void setName(const std::string& name);
+    void setType(const std::string& type);
+    void setFoodAmount(double amount);
     void setTreatLimit(int amount);
-    void setUserID(int id);
-    void setFeeder(bool feeder);
     void setLamp(bool lamp);
+    void setOtherType(const std::string& other);
 
     int getID() const;
-    string getName() const;
-    string getType() const;
-    int getFoodAmount() const;
+    std::string getName() const;
+    std::string getType() const;
+    double getFoodAmount() const;
     int getTreatLimit() const;
-    int getUserID() const;
-    bool getFeeder() const;
     bool getLamp() const;
+    std::string getOtherType() const;
 
-    void editProfile(const string& pName, const string& pType, int fAmt, int tAmt, bool hasF, bool hasL);
-    void deleteProfile();
+    //Modifier functions
+    void editProfile(const std::string& pName, const std::string& pType, const std::string& oType, double fAmt, int tAmt, /*bool hasF,*/ bool hasL);
+    //void deleteProfile(); Remove since it is already implemented
     void displayProfile();
 
-    PetProfile(int pID, const string& pName, const string& pType, int fAmt, int tLimit, int usID, bool hasF, bool hasLamp)
-        : petID(pID), petName(pName), petType(pType), foodAmount(fAmt), treatLimit(tLimit), userID(usID), hasFeeder(hasF), hasLamp(hasLamp) {}
+    PetProfile(const std::string& pName, const std::string& pType, const std::string& oType, int fAmt, int tLimit, bool hasLamp)
+        : petName(pName), petType(pType), otherPetType(oType), foodAmount(fAmt), treatLimit(tLimit), hasLamp(hasLamp) {}
     PetProfile() {}
     ~PetProfile() {}
 
-    friend ostream& operator<<(ostream& os, const PetProfile& petProfile);
+    friend std::ostream& operator<<(std::ostream& os, const PetProfile& petProfile);
+    friend class PetProfileManager; //Allows the use of setID()
 };

@@ -37,6 +37,7 @@ void SmartLight::acknowledge()
 // Status
 int SmartLight::getBrightness()
 {
+    return brightnessLevel;
 }
 
 //Smartlight:: SmartLight setHeat() {}
