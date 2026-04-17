@@ -22,11 +22,12 @@ private:
     void updateUserInDatabase(UserProfile& userProfile);
     void linkUserToPet(int usrID, int petID, const std::string& userRole);
 public:
-    int addUserProfile(const std::string& usName, const std::string& pasHash, const std::string& eml, const std::string& usRole); //Calls PetProfileManager::addPetProfile() ?
+    int addUserProfile(const std::string& usName, const std::string& pasHash, const std::string& eml, const std::string& usRole); //gets called in authentication manager
     void deleteUserProfile(UserProfile& usrProf);
     void updateUserProfile(UserProfile& usrProf, const std::string& usName, const std::string& pasHash, const std::string& eml);
     int addPetToUser(int userID, const std::string& petName, const std::string& petType,
                      const std::string& otherType, double foodAmt, int treatLimit, bool hasLamp);
 
     UserProfileManager(std::shared_ptr<PetProfileManager> petProfileManager, std::shared_ptr<Database> myDb) : petProfileManager(petProfileManager), database(myDb) {}
+    UserProfileManager() {}
 };

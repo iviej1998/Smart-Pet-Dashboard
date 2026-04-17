@@ -1,4 +1,3 @@
-//#include "Database.cpp"
 #include "Device.h"
 #include "PPDog.h"
 #include "PPFish.h"
@@ -8,20 +7,21 @@
 #include "SmartFeeder.h"
 #include "SmartLight.h"
 #include "SystemAdmin.h"
-#include "User.h"
+
 #include "Login.h"
 #include "mainwindow.h"
 #include "PPwindow.h"
-#include "PPDog.h"
+#include "Database.h"
+#include "UserProfile.h"
+#include "PetProfileManager.h"
+#include "UserProfileManager.h"
+#include "AuthenticationManager.h"
+
 #include <QApplication>
 #include <iostream>
 #include <vector>
 #include <QLocale>
 #include <QTranslator>
-using namespace std;
-
-
-static int petID_count = 1;
 
 int main(int argc, char *argv[])
 {
@@ -37,10 +37,15 @@ int main(int argc, char *argv[])
         }
     }
 
+    auto database = std::make_shared<Database>();
+    auto petManager = std::make_shared<PetProfileManager>(database);
+    auto userManager = std::make_shared<UserProfileManager>(petManager, database);
 
-    Login l;
+    std::vector<UserProfile> users;
+    AuthenticationManager authManager(users, *userManager);
+
+    Login l(&authManager);
     l.show();
 
-
-    return QCoreApplication::exec();
+    return a.exec();
 }

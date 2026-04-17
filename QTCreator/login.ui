@@ -125,9 +125,15 @@ QFrame#loginFrame QPushButton {
      <rect>
       <x>200</x>
       <y>170</y>
-      <width>171</width>
+      <width>200</width>
       <height>241</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>200</width>
+      <height>0</height>
+     </size>
     </property>
     <property name="text">
      <string/>
@@ -167,6 +173,12 @@ QFrame#loginFrame QPushButton {
       <height>231</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>50</width>
+      <height>0</height>
+     </size>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -199,19 +211,34 @@ QFrame#loginFrame QPushButton {
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>279</x>
       <y>70</y>
-      <width>221</width>
+      <width>200</width>
       <height>271</height>
      </rect>
     </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>200</width>
+      <height>16777215</height>
+     </size>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background: qlineargradient(
-    x1:0, y1:0, x2:1, y2:1,
-    stop:0 rgba(0, 0, 0, 180),
-    stop:1 rgba(0, 0, 0, 100)
-);
-border-radius: 25px;</string>
+     <string notr="true">background-color: rgba(0, 0, 0, 120);
+border-radius: 20px;
+border: 1px solid rgba(255, 255, 255, 40);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Shape::StyledPanel</enum>
@@ -223,24 +250,33 @@ border-radius: 25px;</string>
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>10</y>
-       <width>221</width>
-       <height>251</height>
+       <y>0</y>
+       <width>202</width>
+       <height>271</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="loginlayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SizeConstraint::SetNoConstraint</enum>
+      </property>
       <item>
        <widget class="QLabel" name="lblStatus">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
-          <width>10000</width>
-          <height>35</height>
+          <width>20000</width>
+          <height>100</height>
          </size>
         </property>
         <property name="font">
          <font>
           <family>Californian FB</family>
-          <pointsize>18</pointsize>
+          <pointsize>14</pointsize>
           <italic>false</italic>
           <bold>true</bold>
           <underline>false</underline>
@@ -256,6 +292,9 @@ color: white
         </property>
         <property name="alignment">
          <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -273,21 +312,51 @@ color: white
         <property name="text">
          <string>Email</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="editEmail">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>35</height>
+          <height>60</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 200);
-color: black;
-border-radius: 8px;
-padding: 6px;</string>
+         <string notr="true">QLineEdit {
+    background-color: rgba(255, 255, 255, 180);
+    border-radius: 15px;
+    padding: 8px;
+    font-size: 11px;
+    color: black;
+    border: 1px solid rgba(255, 255, 255, 120);
+}
+
+QLineEdit:focus {
+    background-color: rgba(255, 255, 255, 220);
+    border: 2px solid rgba(255, 255, 255, 200);
+}
+
+QLineEdit::placeholder {
+    color: rgba(0, 0, 0, 120);
+}</string>
         </property>
        </widget>
       </item>
@@ -305,21 +374,51 @@ padding: 6px;</string>
         <property name="text">
          <string>Password</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="editPass">
-        <property name="maximumSize">
+        <property name="minimumSize">
          <size>
-          <width>16777215</width>
-          <height>35</height>
+          <width>100</width>
+          <height>0</height>
          </size>
         </property>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 200);
-color: black;
-border-radius: 8px;
-padding: 6px;</string>
+         <string notr="true">QLineEdit {
+    background-color: rgba(255, 255, 255, 180);
+    border-radius: 15px;
+    padding: 8px;
+    font-size: 11px;
+    color: black;
+    border: 1px solid rgba(255, 255, 255, 120);
+}
+
+QLineEdit:focus {
+    background-color: rgba(255, 255, 255, 220);
+    border: 2px solid rgba(255, 255, 255, 200);
+}
+
+QLineEdit::placeholder {
+    color: rgba(0, 0, 0, 120);
+}</string>
         </property>
        </widget>
       </item>
@@ -328,7 +427,7 @@ padding: 6px;</string>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>35</height>
+          <height>60</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -373,7 +472,7 @@ padding: 8px;</string>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>30</height>
+          <height>60</height>
          </size>
         </property>
         <property name="styleSheet">

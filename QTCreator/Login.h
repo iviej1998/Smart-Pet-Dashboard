@@ -10,13 +10,14 @@ QT_END_NAMESPACE
 
 class CreateAccount;
 class MainWindow;
+class AuthenticationManager;
 
 class Login : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    Login(QWidget *parent = nullptr);
+    explicit Login(AuthenticationManager* authManager, QWidget *parent = nullptr);
     ~Login();
 
 private slots:
@@ -25,6 +26,7 @@ private slots:
 
 private:
     Ui::Login *ui;
+    AuthenticationManager* authManager;
     CreateAccount* createAccountWindow = nullptr;
     MainWindow* mainWindow = nullptr;
 };

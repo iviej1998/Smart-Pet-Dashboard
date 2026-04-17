@@ -10,17 +10,30 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>100</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background: qlineargradient(
+    x1:0, y1:0, x2:1, y2:1,
+    stop:0 #2c3e50,
+    stop:1 #4ca1af
+);</string>
+   </property>
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
       <x>200</x>
       <y>30</y>
-      <width>261</width>
-      <height>321</height>
+      <width>381</width>
+      <height>521</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -42,8 +55,8 @@ border-radius: 25px;</string>
       <rect>
        <x>20</x>
        <y>10</y>
-       <width>221</width>
-       <height>301</height>
+       <width>341</width>
+       <height>501</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="loginlayout">
@@ -78,6 +91,41 @@ color: white
        </widget>
       </item>
       <item>
+       <widget class="QLabel" name="label_8">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: transparent;</string>
+        </property>
+        <property name="text">
+         <string>Email Address:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="printEmail">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(255, 255, 255, 220);
+color: black;
+border-radius: 10px;
+padding: 8px;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QLabel" name="label_6">
         <property name="maximumSize">
          <size>
@@ -98,6 +146,12 @@ color: white
       </item>
       <item>
        <widget class="QLineEdit" name="printUsername">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>35</height>
+         </size>
+        </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
@@ -105,13 +159,13 @@ color: white
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 200);
+         <string notr="true">background-color: rgba(255, 255, 255, 220);
 color: black;
-border-radius: 8px;
-padding: 6px;</string>
+border-radius: 10px;
+padding: 8px;</string>
         </property>
         <property name="text">
-         <string>username</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -136,11 +190,17 @@ padding: 6px;</string>
       </item>
       <item>
        <widget class="QLineEdit" name="editUsername">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>35</height>
+         </size>
+        </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 200);
+         <string notr="true">background-color: rgba(255, 255, 255, 220);
 color: black;
-border-radius: 8px;
-padding: 6px;</string>
+border-radius: 10px;
+padding: 8px;</string>
         </property>
        </widget>
       </item>
@@ -162,11 +222,17 @@ padding: 6px;</string>
       </item>
       <item>
        <widget class="QLineEdit" name="printPassHash">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>35</height>
+         </size>
+        </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 200);
+         <string notr="true">background-color: rgba(255, 255, 255, 220);
 color: black;
-border-radius: 8px;
-padding: 6px;</string>
+border-radius: 10px;
+padding: 8px;</string>
         </property>
         <property name="text">
          <string>hashed password</string>
@@ -191,11 +257,33 @@ padding: 6px;</string>
       </item>
       <item>
        <widget class="QLineEdit" name="editPassHash">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>35</height>
+         </size>
+        </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 200);
+         <string notr="true">background-color: rgba(255, 255, 255, 220);
 color: black;
-border-radius: 8px;
-padding: 6px;</string>
+border-radius: 10px;
+padding: 8px;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblStatus">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: transparent;</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </item>
@@ -204,7 +292,7 @@ padding: 6px;</string>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>30</height>
+          <height>35</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -222,17 +310,6 @@ padding: 8px;</string>
     </widget>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>17</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

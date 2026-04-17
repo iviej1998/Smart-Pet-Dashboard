@@ -33,6 +33,13 @@ void UserProfileManager::addUserToDatabase(UserProfile& userProfile) {
     database->executeQuery(aSqlQuery);
 }
 
+void UserProfileManager::deleteUserFromDatabase(UserProfile& userProfile) {
+    std::string dSqlQuery = "DELETE FROM UserProfile WHERE Username = '" + userProfile.getUserName() + "' ";
+
+    database->executeQuery(dSqlQuery);
+}
+
+
 void UserProfileManager::deleteUserProfile(UserProfile& usrProf) {
     deleteUserFromDatabase(usrProf);
     auto it = std::find_if(userProfiles.begin(), userProfiles.end(), [&](const std::unique_ptr<UserProfile>& p) {
@@ -42,11 +49,6 @@ void UserProfileManager::deleteUserProfile(UserProfile& usrProf) {
     if (it != userProfiles.end()) {
         userProfiles.erase(it);
     }
-}
-void UserProfileManager::deleteUserFromDatabase(UserProfile& userProfile) {
-    std::string dSqlQuery = "DELETE FROM UserProfile WHERE Username = '" + userProfile.getUserName() + "' ";
-
-    database->executeQuery(dSqlQuery);
 }
 
 void UserProfileManager::updateUserProfile(UserProfile& usrProf, const std::string& usName, const std::string& pasHash, const std::string& eml) {

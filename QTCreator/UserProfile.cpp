@@ -8,12 +8,14 @@ void UserProfile::setUsrID(int id) { userID = id; }
 
 //Setters
 void UserProfile::setUsrName(const std::string& usrName) { userName = usrName; }
+void UserProfile::setPassword(const std::string& pass) { password = pass; }
 void UserProfile::setPassHash(const std::string& passHash) { passwordHash = passHash; } //Needs necessary library, Jill will already hash the password, not me
 void UserProfile::setUsrEmail(const std::string& usrEmail) { email = usrEmail; }
 void UserProfile::setUsrRole(const std::string& usrRole) { userRole = usrRole; }
 
 //Getters
 int UserProfile::getUserID() const { return userID; }
+std::string UserProfile::getPassword() const { return password; }
 std::string UserProfile::getUserName() const { return userName; }
 std::string UserProfile::getPasswordHash() const { return passwordHash; } //Might not need, tdb
 std::string UserProfile::getEmail() const { return email; }

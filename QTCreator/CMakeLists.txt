@@ -25,11 +25,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
 
 
-        User.cpp
 
-        globals.h
-        User.h
-        globals.cpp
+
+
+
+
         PetOwner.h PetOwner.cpp
         Device.h Device.cpp
         PetProfile.h PetProfile.cpp
