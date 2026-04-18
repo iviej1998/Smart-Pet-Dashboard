@@ -44,8 +44,10 @@ int main(int argc, char *argv[])
     std::vector<UserProfile> users;
     AuthenticationManager authManager(users, *userManager);
 
-    Login l(&authManager);
-    l.show();
+    MainWindow w;
+    w.show();
+    //Login l(&authManager);
+    //l.show();
 
     return a.exec();
 }

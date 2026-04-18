@@ -13,19 +13,93 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #18181b;
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">/* Main background */
+QWidget {
+    background-color: #18181b;
+    color: white;
+}
+
+/* ALL cards base style */
+QFrame {
+    background-color: #27272a;
+    border: 1px solid #3f3f46;
+    border-radius: 14px;
+}
+
+QWidget {
+    background-color: #18181b;
+    color: white;
+}
+
+QFrame#overviewCard,
+QFrame#petsCard,
+QFrame#notificationsCard,
+QFrame#activityCard {
+    background-color: #27272a;
+    border: 1px solid #3f3f46;
+    border-radius: 14px;
+}
+
+/* Specific cards (optional tweaks) */
+QFrame#overviewCard {
+    background-color: #2d2d32;
+}
+
+QFrame#petsCard {
+    background-color: #2a2a30;
+}
+
+QFrame#notificationsCard {
+    background-color: #2a2a30;
+}
+
+QFrame#activityCard {
+    background-color: #26262b;
+}
+
+QLabel {
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+/* Buttons */
+QPushButton {
+    background-color: #313135;
+    color: white;
+    border: 1px solid #45454d;
+    border-radius: 10px;
+    padding: 8px 12px;
+}
+
+QPushButton:hover {
+    background-color: #3d3d44;
+}</string>
+   </property>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>60</x>
       <y>0</y>
-      <width>611</width>
+      <width>701</width>
       <height>31</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">font-size: 14px;
+font-weight: bold;
+color: white;</string>
+       </property>
        <property name="text">
         <string>Welcome, Name</string>
        </property>
@@ -36,7 +110,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="overviewCard">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -45,20 +119,33 @@
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame#petsStatCard,
+QFrame#devicesStatCard,
+QFrame#alertsStatCard {
+    background-color: #2b2b31;
+    border: 1px solid #3f3f46;
+    border-radius: 12px;
+}</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::Shape::StyledPanel</enum>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Shadow::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="lblOverviewTitle">
      <property name="geometry">
       <rect>
-       <x>6</x>
+       <x>30</x>
        <y>0</y>
-       <width>71</width>
-       <height>21</height>
+       <width>111</width>
+       <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 14px;
+font-weight: bold;</string>
      </property>
      <property name="text">
       <string>Overview</string>
@@ -70,14 +157,224 @@
        <x>0</x>
        <y>30</y>
        <width>641</width>
-       <height>71</height>
+       <height>51</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLabel" name="label_3">
+       <widget class="QFrame" name="petsStatCard">
+        <property name="styleSheet">
+         <string notr="true">    background-color: #2b2b31;
+    border: 1px solid #3f3f46;
+    border-radius: 12px;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+        <widget class="QLabel" name="lblPetsTitle">
+         <property name="geometry">
+          <rect>
+           <x>-4</x>
+           <y>0</y>
+           <width>211</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Pets:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lblPetsValue">
+         <property name="geometry">
+          <rect>
+           <x>120</x>
+           <y>20</y>
+           <width>51</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="DevicesStatCard">
+        <property name="styleSheet">
+         <string notr="true">    background-color: #2b2b31;
+    border: 1px solid #3f3f46;
+    border-radius: 12px;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+        <widget class="QLabel" name="lblDevicesTitle">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>211</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Connected Devices:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lblDevicesValue">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>20</y>
+           <width>51</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="alertsStatCard">
+        <property name="styleSheet">
+         <string notr="true">    background-color: #2b2b31;
+    border: 1px solid #3f3f46;
+    border-radius: 12px;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+        <widget class="QLabel" name="lblAlertsTitle">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>211</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Alerts:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lblAlertsValue">
+         <property name="geometry">
+          <rect>
+           <x>130</x>
+           <y>20</y>
+           <width>51</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="petsCard">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>130</y>
+      <width>291</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>161</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="lblMyPets">
+        <property name="styleSheet">
+         <string notr="true">font-size: 14px;
+font-weight: bold;</string>
+        </property>
         <property name="text">
-         <string>Pets:</string>
+         <string>My Pets</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="pet1Label">
+        <property name="text">
+         <string>PetName </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="pet2Label">
+        <property name="text">
+         <string>PetName</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="pet3Label">
+        <property name="text">
+         <string>PetName - Pet Type</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>0</y>
+       <width>131</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="lblStatus">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -85,9 +382,62 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_4">
+       <widget class="QPushButton" name="btnViewPet1">
         <property name="text">
-         <string>Connected Devices:</string>
+         <string>View Profile</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnViewPet2">
+        <property name="text">
+         <string>View Profile</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnViewPet3">
+        <property name="text">
+         <string>View Profile</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="notificationsCard">
+    <property name="geometry">
+     <rect>
+      <x>369</x>
+      <y>129</y>
+      <width>351</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>351</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="lblNotifications">
+        <property name="styleSheet">
+         <string notr="true">font-size: 14px;
+font-weight: bold;</string>
+        </property>
+        <property name="text">
+         <string>Notifications</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -95,9 +445,29 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="notif1Label">
         <property name="text">
-         <string>Alerts:</string>
+         <string>notif1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="notif2Label">
+        <property name="text">
+         <string>notif2</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="notif3Label">
+        <property name="text">
+         <string>notif3</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -107,27 +477,131 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
+   <widget class="QFrame" name="activityCard">
     <property name="geometry">
      <rect>
       <x>79</x>
-      <y>129</y>
-      <width>441</width>
-      <height>261</height>
+      <y>369</y>
+      <width>701</width>
+      <height>191</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QFrame" name="frame_2">
-       <property name="frameShape">
-        <enum>QFrame::Shape::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Shadow::Raised</enum>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>-1</x>
+       <y>-1</y>
+       <width>701</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLabel" name="lblAcivity">
+        <property name="styleSheet">
+         <string notr="true">font-size: 14px;
+font-weight: bold;</string>
+        </property>
+        <property name="text">
+         <string>Activity</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>-1</x>
+       <y>30</y>
+       <width>81</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QLabel" name="activity1Type">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="activity2Type">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="activity3Type">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_6">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>30</y>
+       <width>261</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <item>
+       <widget class="QLabel" name="activity1Text">
+        <property name="text">
+         <string>activity 1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="activity2Text">
+        <property name="text">
+         <string>activity2</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="activity3Text">
+        <property name="text">
+         <string>acivity 3</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
