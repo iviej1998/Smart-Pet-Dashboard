@@ -18,7 +18,6 @@ public:
     ~MainWindow() override;
 
 private slots:
-    void on_btnCreatePet_clicked();
 
 private:
     Ui::MainWindow *ui;
