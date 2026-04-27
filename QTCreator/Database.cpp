@@ -1,78 +1,113 @@
-//
-// Created by Angel Madrigal on 4/11/26.
-//
 #include "Database.h"
 #include <iostream>
 #include <sstream>
-#include <mysqlx/xdevapi.h>
+#include <stdexcept>
 
 bool Database::connect() {
     try {
-        // Connect to the server
-        session = new mysqlx::Session(host, port, userName, password, databaseName);
-        //Grab database schema with name
-        schema = new mysqlx::Schema(session->getSchema(databaseName));
+        std::cout << "Host: [" << host << "]" << std::endl;
+        std::cout << "User: [" << userName << "]" << std::endl;
+        std::cout << "DB: [" << databaseName << "]" << std::endl;
+        std::cout << "Port: [" << port << "]" << std::endl;
 
+        driver = sql::mysql::get_mysql_driver_instance();
+
+        sql::ConnectOptionsMap connection_properties;
+        connection_properties["hostName"] = sql::SQLString(host);
+        connection_properties["userName"] = sql::SQLString(userName);
+        connection_properties["password"] = sql::SQLString(password);
+        connection_properties["port"] = port;
+
+        connection.reset(driver->connect(connection_properties));
+
+        if (!databaseName.empty()) {
+            connection->setSchema(databaseName);
+        }
+
+        std::cout << "Connected to database successfully." << std::endl;
         return true;
 
-    } catch (const mysqlx::Error &err) {
+    } catch (const sql::SQLException& err) {
+        std::cerr << "SQL Error: " << err.what()
+        << "\nError Code: " << err.getErrorCode()
+        << "\nSQLState: " << err.getSQLState()
+        << std::endl;
+    } catch (const std::bad_alloc& err) {
+        std::cerr << "Memory Error: " << err.what() << std::endl;
+    } catch (const std::exception& err) {
         std::cerr << "Error: " << err.what() << std::endl;
     }
     return false;
 }
-
 void Database::disconnect() {
     try {
-        session->close();
-        delete session;
-        session = nullptr;
-        delete schema;
-        schema = nullptr;
-    } catch (const mysqlx::Error &err) {
-        std::cerr << "Error: " << err.what() << std::endl;
+        if (connection) {
+            connection->close();
+            connection.reset();
+        }
+    } catch (const sql::SQLException& err) {
+        std::cerr << "SQL Error: " << err.what() << std::endl;
     }
 }
-bool Database::executeQuery(const std::string& query) { //Use of INSERT, DELETE, UPDATE
+
+bool Database::executeQuery(const std::string& query) {
     try {
-        session->sql(query).execute();
+        if (!connection) {
+            std::cerr << "No active database connection." << std::endl;
+            return false;
+        }
+
+        std::unique_ptr<sql::Statement> stmt(connection->createStatement());
+        stmt->execute(query);
         return true;
-    } catch (const mysqlx::Error &err) {
-        std::cerr << "Error: " << err.what() << std::endl;
+
+    } catch (const sql::SQLException& err) {
+        std::cerr << "SQL Error: " << err.what()
+        << "\nError Code: " << err.getErrorCode()
+        << "\nSQLState: " << err.getSQLState()
+        << std::endl;
     }
     return false;
 }
 
-Database::QueryResult Database::executeSelectQuery(const std::string& query) { //Use for SELECT
+Database::QueryResult Database::executeSelectQuery(const std::string& query) {
     QueryResult actualRes;
-    try {
-        mysqlx::RowResult res =  session->sql(query).execute();
-        mysqlx::Row currentRow;
-        const mysqlx::Columns& cols = res.getColumns();
 
-        while ((currentRow = res.fetchOne())) {
+    try {
+        if (!connection) {
+            std::cerr << "No active database connection." << std::endl;
+            return actualRes;
+        }
+
+        std::unique_ptr<sql::Statement> stmt(connection->createStatement());
+        std::unique_ptr<sql::ResultSet> res(stmt->executeQuery(query));
+        sql::ResultSetMetaData* meta = res->getMetaData();
+
+        int columnCount = meta->getColumnCount();
+
+        while (res->next()) {
             Row row;
-            for (auto i = 0; i < res.getColumnCount(); ++i) {
-                //Checks for data type in row for value in map
-                if (currentRow[i].getType() == mysqlx::Value::Type::INT64) {
-                    row[cols[i].getColumnName()] = std::to_string(currentRow[i].get<int>());
-                } else if (currentRow[i].getType() == mysqlx::Value::Type::DOUBLE) {
-                    row[cols[i].getColumnName()] = std::to_string(currentRow[i].get<double>());
-                } else if (currentRow[i].getType() == mysqlx::Value::Type::STRING) {
-                    row[cols[i].getColumnName()] = currentRow[i].get<std::string>();
-                } else if (currentRow[i].getType() == mysqlx::Value::Type::BOOL) {
-                    row[cols[i].getColumnName()] = std::to_string(currentRow[i].get<bool>());
-                } else if (currentRow[i].getType() == mysqlx::Value::Type::VNULL) { //If OtherType is NUll
-                    row[cols[i].getColumnName()] = "";
-                } else if (currentRow[i].getType() == mysqlx::Value::Type::UINT64) { //For Pet ID, return unsigned integer instead of signed
-                    row[cols[i].getColumnName()] = std::to_string(currentRow[i].get<uint64_t>());
+
+            for (int i = 1; i <= columnCount; ++i) {
+                std::string colName = meta->getColumnLabel(i);
+
+                if (res->isNull(i)) {
+                    row[colName] = "";
+                } else {
+                    row[colName] = res->getString(i);
                 }
             }
+
             actualRes.push_back(row);
         }
-        return actualRes;
-    } catch (const mysqlx::Error &err) {
-        std::cerr << "Error: " << err.what() << std::endl;
+
+    } catch (const sql::SQLException& err) {
+        std::cerr << "SQL Error: " << err.what()
+        << "\nError Code: " << err.getErrorCode()
+        << "\nSQLState: " << err.getSQLState()
+        << std::endl;
     }
+
     return actualRes;
 }
 

@@ -22,6 +22,7 @@
 #include <vector>
 #include <QLocale>
 #include <QTranslator>
+#include <memory>
 
 int main(int argc, char *argv[])
 {
@@ -36,18 +37,38 @@ int main(int argc, char *argv[])
             break;
         }
     }
+    std::shared_ptr<Database> database(
+        new Database(
+            std::string("172.30.155.209"),
+            std::string("Jill"),
+            std::string("password2"),
+            std::string("smartpetdashboard_monitoringlogging_db"),
+            3306
+            )
+        );
 
-    auto database = std::make_shared<Database>();
-    auto petManager = std::make_shared<PetProfileManager>(database);
-    auto userManager = std::make_shared<UserProfileManager>(petManager, database);
+    if (!database->connect()) {
+        std::cerr << "Database connection failed." << std::endl;
+        return -1;
+    }
+
+    std::shared_ptr<PetProfileManager> petManager(
+        new PetProfileManager(database)
+        );
+
+    std::shared_ptr<UserProfileManager> userManager(
+        new UserProfileManager(petManager, database)
+        );
 
     std::vector<UserProfile> users;
-    AuthenticationManager authManager(users, *userManager);
+    AuthenticationManager authManager(users, *userManager, database.get());
 
-    MainWindow w;
-    w.show();
-    //Login l(&authManager);
-    //l.show();
+    Login l(&authManager);
+    l.show();
+    //MainWindow w;
+    //w.show();
+    int result = a.exec();
 
-    return a.exec();
+    //database->disconnect();
+    return result;
 }

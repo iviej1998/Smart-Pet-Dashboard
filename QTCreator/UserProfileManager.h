@@ -17,7 +17,7 @@ private:
     std::shared_ptr<Database> database;
     std::vector<std::unique_ptr<UserProfile> > userProfiles;
 
-    void addUserToDatabase(UserProfile& userProfile);
+    bool addUserToDatabase(UserProfile& userProfile);
     void deleteUserFromDatabase(UserProfile& userProfile);
     void updateUserInDatabase(UserProfile& userProfile);
     void linkUserToPet(int usrID, int petID, const std::string& userRole);
@@ -29,5 +29,6 @@ public:
                      const std::string& otherType, double foodAmt, int treatLimit, bool hasLamp);
 
     UserProfileManager(std::shared_ptr<PetProfileManager> petProfileManager, std::shared_ptr<Database> myDb) : petProfileManager(petProfileManager), database(myDb) {}
+    std::vector<int> getPetIdsForUser(int userID);
     UserProfileManager() {}
 };

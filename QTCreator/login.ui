@@ -211,10 +211,10 @@ QFrame#loginFrame QPushButton {
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
-      <x>279</x>
+      <x>278</x>
       <y>70</y>
-      <width>200</width>
-      <height>271</height>
+      <width>241</width>
+      <height>291</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -231,7 +231,7 @@ QFrame#loginFrame QPushButton {
     </property>
     <property name="maximumSize">
      <size>
-      <width>200</width>
+      <width>300</width>
       <height>16777215</height>
      </size>
     </property>
@@ -249,10 +249,10 @@ border: 1px solid rgba(255, 255, 255, 40);</string>
     <widget class="QWidget" name="formLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>1</x>
        <y>0</y>
-       <width>202</width>
-       <height>271</height>
+       <width>241</width>
+       <height>291</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="loginlayout">
@@ -392,7 +392,7 @@ QLineEdit::placeholder {
         </property>
         <property name="maximumSize">
          <size>
-          <width>200</width>
+          <width>300</width>
           <height>60</height>
          </size>
         </property>

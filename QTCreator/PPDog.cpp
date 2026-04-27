@@ -7,7 +7,14 @@ PPDog::PPDog(const PetProfile& p, QWidget *parent)
 {
     ui->setupUi(this);
     QString name = QString::fromStdString(p.getName());
-    ui->label->setText("Pet Profile | " + name);
+    ui->lblStatus->setText("Pet Profile | " + name);
+}
+
+PPDog::PPDog(QWidget *parent)
+    : QDialog(parent)
+    , ui(new Ui::PPDog)
+{
+    ui->setupUi(this);
 }
 
 PPDog::~PPDog()

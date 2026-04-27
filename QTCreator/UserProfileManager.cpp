@@ -4,33 +4,48 @@
 
 #include "UserProfileManager.h"
 
-int UserProfileManager::addUserProfile(const std::string& usName, const std::string& pasHash, const std::string& eml, const std::string& usRole) {
+int UserProfileManager::addUserProfile(const std::string& usName,
+                                       const std::string& pasHash,
+                                       const std::string& eml,
+                                       const std::string& usRole) {
     auto usrProfile = std::make_unique<UserProfile>(usName, pasHash, eml, usRole);
-    addUserToDatabase(*usrProfile);
-    //std::cout << "User Profile insert attempted" << std::endl; - Debugging
 
-    // Retrieve auto-generated ID from database
-    Database::QueryResult result = database->executeSelectQuery("SELECT LAST_INSERT_ID()");
-    //std::cout << "Result size: " << result.size() << std::endl << std::flush; - Debugging
-    if (result.empty()) {
-        std::cout << "Result is empty!" << std::endl;
-    } else {
-        std::string rawValue = result[0].begin()->second;
-        //std::cout << "Raw value: [" << rawValue << "]" << std::flush << std::endl; - Debugging
-        int generatedID = std::stoi(rawValue);
-        usrProfile->setUsrID(generatedID); //Sets UserID from database
+    bool inserted = addUserToDatabase(*usrProfile);
+    if (!inserted) {
+        return -1;
     }
+
+    Database::QueryResult result = database->executeSelectQuery("SELECT LAST_INSERT_ID()");
+
+    if (result.empty()) {
+        std::cout << "LAST_INSERT_ID() returned empty!" << std::endl;
+        return -1;
+    }
+
+    std::string rawValue = result[0].begin()->second;
+    int generatedID = std::stoi(rawValue);
+    usrProfile->setUsrID(generatedID);
+
     int userID = usrProfile->getUserID();
     userProfiles.push_back(std::move(usrProfile));
     return userID;
-
 }
-void UserProfileManager::addUserToDatabase(UserProfile& userProfile) {
-    std::string aSqlQuery = "INSERT INTO UserProfile (Username, PasswordHash, Email, UserRole) "
-                            "VALUES ('" + userProfile.getUserName() + "', '" + userProfile.getPasswordHash() + "', '" + userProfile.getEmail() + "', "
-                                                                                                                                     "'" + userProfile.getUserRole() + "' )";
+bool UserProfileManager::addUserToDatabase(UserProfile& userProfile) {
+    std::string aSqlQuery =
+        "INSERT INTO UserProfile (Username, PasswordHash, Email, UserRole) "
+        "VALUES ('" + userProfile.getUserName() + "', '" +
+        userProfile.getPasswordHash() + "', '" +
+        userProfile.getEmail() + "', '" +
+        userProfile.getUserRole() + "')";
 
-    database->executeQuery(aSqlQuery);
+    bool success = database->executeQuery(aSqlQuery);
+
+    if (!success) {
+        std::cerr << "Failed to insert user into database." << std::endl;
+        return false;
+    }
+
+    return true;
 }
 
 void UserProfileManager::deleteUserFromDatabase(UserProfile& userProfile) {
@@ -84,4 +99,23 @@ int UserProfileManager::addPetToUser(int userID, const std::string& petName, con
     }
 
     return petID;
+}
+
+std::vector<int> UserProfileManager::getPetIdsForUser(int userID) {
+    std::vector<int> petIDs;
+    if (!database){
+        return petIDs;
+    }
+
+    std::string query = "SELECT PetID FROM UserPetAccess WHERE userID = " + std::to_string(userID) + " ORDER BY PetID";
+    Database::QueryResult result = database->executeSelectQuery(query);
+
+    for (const auto& row: result) {
+        auto id = row.find("PetID");
+        if (id != row.end()) {
+            petIDs.push_back(std::stoi(id->second));
+        }
+    }
+    return petIDs;
+
 }

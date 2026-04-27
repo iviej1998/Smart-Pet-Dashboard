@@ -12,6 +12,7 @@ class PPCat : public QDialog
     Q_OBJECT
 
 public:
+    explicit PPCat(QWidget *parent = nullptr);
     explicit PPCat(const PetProfile &p, QWidget *parent = nullptr);
     ~PPCat();
 

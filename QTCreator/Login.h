@@ -25,8 +25,9 @@ private slots:
     void on_btnCreateAccount_clicked();
 
 private:
+private:
     Ui::Login *ui;
-    AuthenticationManager* authManager;
-    CreateAccount* createAccountWindow = nullptr;
+    AuthenticationManager* authManager = nullptr;
     MainWindow* mainWindow = nullptr;
+    CreateAccount* createAccountWindow = nullptr;
 };

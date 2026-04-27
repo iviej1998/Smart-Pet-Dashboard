@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>809</width>
+    <height>665</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -21,28 +21,19 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">background: qlineargradient(
-    x1:0, y1:0, x2:1, y2:1,
-    stop:0 #2c3e50,
-    stop:1 #4ca1af
-);</string>
+    <string notr="true"/>
    </property>
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>180</x>
       <y>30</y>
-      <width>381</width>
-      <height>521</height>
+      <width>451</width>
+      <height>591</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: qlineargradient(
-    x1:0, y1:0, x2:1, y2:1,
-    stop:0 rgba(0, 0, 0, 180),
-    stop:1 rgba(0, 0, 0, 100)
-);
-border-radius: 25px;</string>
+     <string notr="true"/>
     </property>
     <property name="frameShape">
      <enum>QFrame::Shape::StyledPanel</enum>
@@ -53,19 +44,19 @@ border-radius: 25px;</string>
     <widget class="QWidget" name="formLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>10</y>
-       <width>341</width>
-       <height>501</height>
+       <width>431</width>
+       <height>571</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="loginlayout">
       <item>
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="lblTitle">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>30</height>
+          <height>40</height>
          </size>
         </property>
         <property name="font">
@@ -78,9 +69,7 @@ border-radius: 25px;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background: transparent;
-color: white
-</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Create An Account</string>
@@ -91,15 +80,15 @@ color: white
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_8">
+       <widget class="QLabel" name="lblEmail">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>15</height>
+          <height>30</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background: transparent;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Email Address:</string>
@@ -118,23 +107,20 @@ color: white
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 220);
-color: black;
-border-radius: 10px;
-padding: 8px;</string>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_6">
+       <widget class="QLabel" name="lblUsername">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>15</height>
+          <height>30</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background: transparent;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Username</string>
@@ -159,10 +145,7 @@ padding: 8px;</string>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 220);
-color: black;
-border-radius: 10px;
-padding: 8px;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
@@ -170,15 +153,15 @@ padding: 8px;</string>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="lblUsername2">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>15</height>
+          <height>30</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background: transparent;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Confirm Username</string>
@@ -197,23 +180,20 @@ padding: 8px;</string>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 220);
-color: black;
-border-radius: 10px;
-padding: 8px;</string>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_13">
+       <widget class="QLabel" name="lblPassword">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>15</height>
+          <height>30</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background: transparent;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Password</string>
@@ -229,10 +209,7 @@ padding: 8px;</string>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 220);
-color: black;
-border-radius: 10px;
-padding: 8px;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>hashed password</string>
@@ -240,7 +217,7 @@ padding: 8px;</string>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_14">
+       <widget class="QLabel" name="lblPassword2">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
@@ -248,7 +225,7 @@ padding: 8px;</string>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background: transparent;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Confirm Password</string>
@@ -264,10 +241,7 @@ padding: 8px;</string>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 220);
-color: black;
-border-radius: 10px;
-padding: 8px;</string>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -276,11 +250,11 @@ padding: 8px;</string>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>15</height>
+          <height>40</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background: transparent;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
@@ -292,14 +266,11 @@ padding: 8px;</string>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>35</height>
+          <height>50</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 220);
-color: black;
-border-radius: 10px;
-padding: 8px;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Create Account</string>

@@ -12,6 +12,7 @@ class FishPP : public QDialog
     Q_OBJECT
 
 public:
+    explicit FishPP(QWidget *parent = nullptr);
     explicit FishPP(const PetProfile& p, QWidget *parent = nullptr);
     ~FishPP();
 

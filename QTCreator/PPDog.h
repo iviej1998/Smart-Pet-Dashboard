@@ -11,7 +11,8 @@ class PPDog : public QDialog
     Q_OBJECT
 
 public:
-    explicit PPDog(const PetProfile& p, QWidget *parent = nullptr);
+    explicit PPDog(QWidget *parent = nullptr);
+    PPDog(const PetProfile& p, QWidget *parent = nullptr);
     ~PPDog();
 
 
